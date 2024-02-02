@@ -64,50 +64,64 @@
   height: 100%;
   top: 0;
   left: 0;
-  border: 2px solid #fff;
+  //   border: 2px solid #fff;
   pointer-events: none;
 
-  border-radius: 15px 15px 15px 15px / 7px 7px 7px 7px;
+  //   &::before,
+  //   &::after {
+  //     content: "";
+  //     position: absolute;
+  //     top: -3px;
+  //     left: 8px;
+  //     width: calc(100% - 16px);
+  //     height: 5px;
+  //     background-color: #000;
+  //   }
+
+  //   &::after {
+  //     top: auto;
+  //     bottom: -3px;
+  //   }
 
   &::before,
   &::after {
     content: "";
     position: absolute;
-    top: -3px;
-    left: 8px;
-    width: calc(100% - 16px);
-    height: 5px;
-    background-color: #000;
+    width: 15px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 15px 15px 15px 15px / 7px 7px 7px 7px;
+    border: 2px solid #fff;
   }
 
+  &::before {
+    clip-path: polygon(0 0, 65% 0, 65% 100%, 0 100%);
+  }
   &::after {
-    top: auto;
-    bottom: -3px;
-  }
-
-  &_white {
-    border-color: #fff;
+    left: auto;
+    right: 0;
+    clip-path: polygon(35% 0, 100% 0, 100% 100%, 35% 100%);
   }
 
   &_vertical {
-    border-radius: 10px 10px 10px 10px / 25px 25px 25px 25px;
-
     &::before,
     &::after {
       top: auto;
-      bottom: auto;
+      right: auto;
       left: auto;
-      background-color: #172a53;
-      width: 5px;
-      top: 8px;
-      height: calc(100% - 16px);
+      left: 0;
+      width: 100%;
+      height: 15px;
+      border-radius: 10px 10px 10px 10px / 25px 25px 25px 25px;
     }
 
     &::before {
-      left: -3px;
+      clip-path: polygon(0 0, 100% 0, 100% 65%, 0 65%);
     }
     &::after {
-      right: -3px;
+      bottom: 0;
+      clip-path: polygon(0 35%, 100% 35%, 100% 100%, 0 100%);
     }
   }
 }
@@ -242,5 +256,16 @@
 // .fancybox__container {
 //     max-width: none;
 // }
+
+//========================================================================================================================================================
+
+canvas#wawes {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
 
 //========================================================================================================================================================

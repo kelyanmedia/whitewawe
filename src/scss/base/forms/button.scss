@@ -16,6 +16,7 @@
   font-weight: 600;
   line-height: 125%; /* 20/16 */
   text-align: center;
+  text-transform: uppercase;
   @include adaptiveValue("height", 60, 55);
 
   transition: all 0.3s ease 0s;
@@ -26,5 +27,17 @@
   }
   &--fw {
     width: 100%;
+  }
+
+  &_white {
+    background-color: #fff;
+    color: #172a53;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #172a53;
+        color: #fff;
+      }
+    }
   }
 }

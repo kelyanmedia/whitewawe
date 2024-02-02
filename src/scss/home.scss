@@ -4,7 +4,7 @@
   &__body {
     position: relative;
 
-    min-height: 100svh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
@@ -23,7 +23,7 @@
     line-height: 130%; /* 26/20 */
     letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: toRem(5);
+    @include adaptiveValue("margin-bottom", 20, 15);
   }
 
   &__title {
@@ -39,7 +39,7 @@
     }
 
     &:not(:last-child) {
-      margin-bottom: toRem(20);
+      @include adaptiveValue("margin-bottom", 50, 25);
     }
   }
 
@@ -51,6 +51,19 @@
 
     span {
       font-weight: 700;
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 70, 40);
+    }
+  }
+
+  &__button {
+    @media (min-width: $mobile) {
+      min-width: toRem(300);
+    }
+    @media (max-width: $mobile) {
+      width: 100%;
     }
   }
 
