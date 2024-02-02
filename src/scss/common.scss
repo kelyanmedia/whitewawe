@@ -3,28 +3,44 @@
 //========================================================================================================================================================
 
 .title {
-  color: #000;
+  color: #fff;
   font-family: "Unbounded";
   @include adaptiveValue("font-size", 40, 25);
   font-weight: 700;
   line-height: 110%;
   text-transform: uppercase;
+
+  &_dark {
+    color: #000;
+  }
+
+  &_blue {
+    color: #172a53;
+  }
 }
 
 .title-content {
-  color: #000;
+  color: #fff;
   font-family: "Unbounded";
   @include adaptiveValue("font-size", 36, 22);
   font-weight: 500;
   line-height: 125%; /* 45/36 */
+
+  &_dark {
+    color: #000;
+  }
 }
 
 .mark {
-  color: #172a53;
+  color: #fff;
   font-family: "Muller";
   @include adaptiveValue("font-size", 20, 18);
   font-weight: 400;
   line-height: 100%;
+
+  &_dark {
+    color: #000;
+  }
 }
 
 .top-section {
@@ -34,6 +50,9 @@
 
   @media (max-width: $mobileSmall) {
     flex-direction: column;
+  }
+
+  &_mark {
   }
 }
 
@@ -45,7 +64,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  border: 2px solid #000;
+  border: 2px solid #fff;
   pointer-events: none;
 
   border-radius: 15px 15px 15px 15px / 7px 7px 7px 7px;
@@ -58,12 +77,94 @@
     left: 8px;
     width: calc(100% - 16px);
     height: 5px;
-    background-color: #fff;
+    background-color: #000;
   }
 
   &::after {
     top: auto;
     bottom: -3px;
+  }
+
+  &_white {
+    border-color: #fff;
+  }
+
+  &_vertical {
+    border-radius: 10px 10px 10px 10px / 25px 25px 25px 25px;
+
+    &::before,
+    &::after {
+      top: auto;
+      bottom: auto;
+      left: auto;
+      background-color: #172a53;
+      width: 5px;
+      top: 8px;
+      height: calc(100% - 16px);
+    }
+
+    &::before {
+      left: -3px;
+    }
+    &::after {
+      right: -3px;
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.link {
+  color: #fff;
+  font-family: "Unbounded";
+  @include adaptiveValue("font-size", 20, 18);
+  font-weight: 500;
+  line-height: 125%; /* 25/20 */
+  text-transform: uppercase;
+
+  display: inline-block;
+  margin-top: auto;
+
+  position: relative;
+
+  transition: all 0.3s ease 0s;
+  @media (any-hover: hover) {
+    &:hover {
+      &::before {
+        animation: puls 1s linear infinite;
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+
+    transition: all 0.3s ease 0s;
+  }
+
+  &_dark {
+    color: #172a53;
+    &::before {
+      background-color: #172a53;
+    }
+  }
+}
+
+@keyframes puls {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -75,22 +176,65 @@
   align-items: center;
   gap: toRem(10);
   .swiper-pagination-bullet {
+    cursor: pointer;
     display: block;
     width: toRem(15);
     height: toRem(15);
     border-radius: 50%;
-    border: 1px solid #172a53;
+    border: 1px solid #fff;
     transition: all 0.3s ease 0s;
 
     @media (any-hover: hover) {
       &:hover {
-        background-color: #172a53;
+        background-color: #fff;
       }
     }
   }
   .swiper-pagination-bullet-active {
-    background-color: #172a53;
+    background-color: #fff;
   }
+}
+
+//========================================================================================================================================================
+
+.navigation {
+  display: flex;
+  gap: toRem(20);
+  &__button {
+    position: relative;
+    width: toRem(60);
+    height: toRem(60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: toRem(25);
+    transition: all 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        .navigation__decore {
+          width: 90%;
+          left: 5%;
+        }
+      }
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.3;
+    }
+  }
+
+  &__decore {
+    transition:
+      width 0.3s ease 0s,
+      left 0.3s ease 0s;
+  }
+}
+.button-prev {
+}
+
+.button-next {
 }
 
 //========================================================================================================================================================

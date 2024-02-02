@@ -1,3 +1,92 @@
 //====================================================================================================
 
+.footer {
+  @include adaptiveValue("padding-top", 70, 50);
+  @include adaptiveValue("padding-bottom", 90, 50);
+  background-color: #172a53;
+  &__container {
+    display: flex;
+    @include adaptiveValue("column-gap", 140, 70, 0, 1230, 767);
+    row-gap: toRem(30);
+    color: #fff;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__list {
+  }
+
+  &__title {
+    @include adaptiveValue("font-size", 24, 22);
+    font-weight: 700;
+    line-height: 130%;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 15, 10);
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: toRem(10);
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: toRem(5) 0;
+    font-size: toRem(18);
+    font-weight: 700;
+    line-height: 130%;
+
+    position: relative;
+    transition: color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          width: 100%;
+          left: 0;
+          right: auto;
+        }
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      right: 0;
+      background-color: #fff;
+
+      transition: all 0.3s ease 0s;
+    }
+  }
+
+  &__social {
+    @media (min-width: $mobile) {
+      margin-left: auto;
+    }
+  }
+}
+.social {
+  display: flex;
+  align-items: center;
+  gap: toRem(16);
+  &__item {
+    font-size: toRem(50);
+    color: #fff;
+
+    transition: transform 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        transform: translateY(5px);
+      }
+    }
+  }
+}
+
 //====================================================================================================
