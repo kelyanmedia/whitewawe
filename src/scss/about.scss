@@ -1,0 +1,148 @@
+.screen {
+  &__container {
+    @include adaptiveValue("padding-top", 170, 120);
+    @include adaptiveValue("padding-bottom", 140, 70);
+  }
+
+  &__top {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 70, 40);
+    }
+  }
+
+  &__title {
+  }
+
+  &__title-brand {
+    color: #fff;
+    font-family: "Unbounded";
+    @include adaptiveValue("font-size", 99, 35);
+    font-weight: 700;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &__advantages {
+  }
+}
+
+.advantages {
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(toRem(300), 1fr));
+    @include adaptiveValue("column-gap", 70, 30, 0, 1230, 991);
+    row-gap: toRem(20);
+  }
+
+  &__item {
+  }
+}
+.item-advantages {
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: toRem(10);
+
+  @include adaptiveValue("padding-left", 20, 15);
+  @include adaptiveValue("padding-right", 20, 15);
+  @include adaptiveValue("padding-top", 30, 20);
+  @include adaptiveValue("padding-bottom", 30, 20);
+
+  .watcher & {
+    transform: translateY(toRem(100));
+    opacity: 0;
+    transition: transform 0.5s ease 0s;
+    &._watcher-view {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    font-family: "Unbounded";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 125%; /* 25/20 */
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(20);
+    }
+  }
+
+  &__text {
+    font-family: "Muller";
+    @include adaptiveValue("font-size", 20, 18);
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+
+//========================================================================================================================================================
+
+.reporting {
+  &__container {
+    @include adaptiveValue("padding-top", 140, 40);
+    @include adaptiveValue("padding-bottom", 140, 40);
+  }
+
+  &__top {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 70, 40);
+    }
+  }
+  &__title {
+  }
+
+  &__items {
+    display: grid;
+
+    @include adaptiveValue("gap", 70, 30, 0, 1230, 991);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(400), 1fr));
+    }
+  }
+
+  &__item {
+  }
+}
+
+.item-reporting {
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: toRem(10);
+
+  @include adaptiveValue("padding-left", 20, 15);
+  @include adaptiveValue("padding-right", 20, 15);
+  @include adaptiveValue("padding-top", 30, 20);
+  @include adaptiveValue("padding-bottom", 30, 20);
+
+  .watcher & {
+    transform: translateY(toRem(100));
+    opacity: 0;
+    transition: transform 0.5s ease 0s;
+    &._watcher-view {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    font-family: "Unbounded";
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 125%; /* 25/20 */
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(20);
+    }
+  }
+
+  &__text {
+    font-family: "Muller";
+    @include adaptiveValue("font-size", 20, 18);
+    font-weight: 400;
+    line-height: 150%;
+  }
+}

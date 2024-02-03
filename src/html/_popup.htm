@@ -1,10 +1,36 @@
 <div id="popup" aria-hidden="true" class="popup">
 	<div class="popup__wrapper">
 		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрити</button>
-			<div class="popup__text">
-				Text
+			<button data-close type="button" class="popup__close"></button>
+
+			<div class="popup__title title">Получите бесплатную консультацию</div>
+			<form action="#" class="popup__form form-contact">
+				<input autocomplete="off" type="text" name="form[]" placeholder="Ваше имя" class="form-contact__input input">
+				<input autocomplete="off" type="text" name="form[]" placeholder="+998-99-99-99" class="form-contact__input input">
+				<input autocomplete="off" type="text" name="form[]" placeholder="Сфера деятельности" class="form-contact__input input">
+				<div class="form-contact__bottom">
+					<button class="form-contact__button button">ОТПРАВИТЬ ЗАЯВКУ</button>
+					<div class="form-contact__info">Нажимая на кнопку, вы принимаете условия <a href="#" target="_blank">политики конфиденциальности</a></div>
+				</div>
+			</form>
+
+			<div class="popup__bg-ibg"><img src="@img/popup/bg.jpeg" alt="" loading="lazy"></div>
+		</div>
+	</div>
+</div>
+<div id="thank" aria-hidden="true" class="popup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+			<button data-close type="button" class="popup__close"></button>
+
+			<div class="popup__thank">
+				<div class="popup__title title">Спасибо за <br> вашу заявку!</div>
+
+				<div class="popup__text">Наш менеджер свяжется с вами по указанному номеру телефона в ближайшее время</div>
+
 			</div>
+
+			<div class="popup__bg-ibg"><img src="@img/popup/bg.jpeg" alt="" loading="lazy"></div>
 		</div>
 	</div>
 </div>

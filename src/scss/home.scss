@@ -4,7 +4,7 @@
   &__body {
     position: relative;
 
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
   }
@@ -98,12 +98,24 @@
     gap: toRem(15);
     background-color: #172a53;
 
+    &::before {
+      content: "";
+      position: absolute;
+      width: 200vw;
+      height: 100%;
+      top: 0;
+      left: -100vw;
+      background-color: #172a53;
+      z-index: 1;
+    }
+
     left: 0;
     &:nth-child(1) {
       animation: line 20s linear infinite;
     }
     &:nth-child(2) {
-      animation: line 24s linear infinite;
+      animation: line-reverse 24s linear infinite;
+      flex-direction: row-reverse;
     }
     &:nth-child(3) {
       animation: line 28s linear infinite;
@@ -115,6 +127,8 @@
   }
 
   &__line-row {
+    position: relative;
+    z-index: 2;
     padding: toRem(15) 0;
 
     display: flex;
@@ -148,6 +162,17 @@
   100% {
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+  }
+}
+@keyframes line-reverse {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(50%);
+    transform: translateX(50%);
   }
 }
 
@@ -233,6 +258,7 @@
   }
 
   &__link {
+    margin-top: auto;
   }
 }
 
@@ -240,9 +266,20 @@
 
 .we-work {
   background-color: #172a53;
-  border-radius: 0 0 50px 50px;
+  border-radius: 50px;
   &__image-ibg {
     padding-bottom: percent(500, 1600);
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 100%;
+      left: 0;
+      background-color: #172a53;
+      pointer-events: none;
+    }
   }
 
   &__container {
@@ -312,6 +349,9 @@
   &__container {
     @include adaptiveValue("padding-top", 140, 50);
     @include adaptiveValue("padding-bottom", 140, 50);
+
+    display: flex;
+    flex-direction: column;
   }
 
   &__top {
@@ -325,6 +365,28 @@
     display: flex;
     flex-wrap: wrap;
     @include adaptiveValue("gap", 30, 10);
+
+    &_small {
+      gap: toRem(10);
+
+      @media (max-width: $mobile) {
+        column-gap: toRem(5);
+        row-gap: toRem(10);
+      }
+
+      .approach__item {
+        font-family: "Muller";
+        @include adaptiveValue("font-size", 20, 16);
+        &:nth-child(3) {
+          margin-left: 0;
+        }
+
+        @media (max-width: $mobile) {
+          padding: toRem(10) toRem(15);
+          font-size: toRem(12);
+        }
+      }
+    }
   }
 
   &__item {
@@ -352,6 +414,11 @@
       margin-left: auto;
     }
   }
+
+  &__link {
+    margin-left: auto;
+    margin-top: toRem(10);
+  }
 }
 
 //========================================================================================================================================================
@@ -375,6 +442,7 @@
   }
 
   &__title {
+    line-height: 150%;
   }
 
   &__form {
@@ -392,6 +460,20 @@
 }
 
 .form-contact {
+  &__mark {
+    margin-left: auto;
+    color: #172a53;
+    @include adaptiveValue("font-size", 20, 14);
+    font-weight: 400;
+    line-height: 100%;
+    max-width: toRem(405);
+    text-align: end;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 20);
+    }
+  }
+
   &__input {
     &:not(:last-child) {
       margin-bottom: toRem(10);

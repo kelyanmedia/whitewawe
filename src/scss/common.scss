@@ -52,7 +52,8 @@
     flex-direction: column;
   }
 
-  &_mark {
+  &__mark {
+    white-space: nowrap;
   }
 }
 
@@ -137,7 +138,6 @@
   text-transform: uppercase;
 
   display: inline-block;
-  margin-top: auto;
 
   position: relative;
 
@@ -269,3 +269,15 @@ canvas#wawes {
 }
 
 //========================================================================================================================================================
+
+[data-watch][data-anim] {
+  .watcher & {
+    transition: transform 0.6s ease 0s;
+    transform: translateY(toRem(100));
+    opacity: 0;
+    &._watcher-view {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

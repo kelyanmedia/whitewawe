@@ -1,0 +1,73 @@
+.target {
+  background-color: #172a53;
+  border-radius: toRem(50);
+  overflow: hidden;
+  &__container {
+  }
+
+  &__body {
+    display: flex;
+    @include adaptiveValue("column-gap", 70, 30, 0, 1230, 991);
+    row-gap: toRem(30);
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__image-ibg {
+    border-radius: toRem(50);
+    overflow: hidden;
+
+    padding-bottom: percent(674, 1200);
+    flex: 0 0 percent(580, 1200);
+
+    @media (min-width: $pc) {
+      margin-left: -200px;
+    }
+    @media (max-width: $tablet) {
+      margin: 0 toRem(-15);
+    }
+    @media (max-width: $mobile) {
+      padding-bottom: percent(260, 375);
+    }
+  }
+
+  &__content {
+    @include adaptiveValue("padding-bottom", 70, 40);
+
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $tablet) {
+      @include adaptiveValue("padding-top", 70, 40);
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 70, 40);
+    }
+  }
+
+  &__item {
+    position: relative;
+    color: #fff;
+    font-family: Muller;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include adaptiveValue("padding", 30, 20);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 70, 40);
+    }
+  }
+
+  &__link {
+    margin-left: auto;
+  }
+  &__decore {
+  }
+}
