@@ -1,0 +1,11 @@
+phpmailer/
+flsStartTemplate/
+node_modules/
+dist/
+Source/
+**/*.rar
+**/*.DS_Store
+.vscode
+version.json
+undefined
+**/*.zip
